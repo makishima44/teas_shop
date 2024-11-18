@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { ProductSort } from "../ProductSort/ProductSort";
 import { ProductItem } from "../ProductItem/ProductItem";
@@ -11,10 +11,15 @@ import styles from "./ProductItem.module.css";
 
 export const ProductList = () => {
   const productArr = useSelector((state: RootState) => state.product);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const addItemToCart = (el: ProductType) => {
     dispatch(addItem(el));
+  };
+
+  const handleProductClick = (id: string) => {
+    navigate(`/product/${id}`);
   };
 
   return (
@@ -27,6 +32,7 @@ export const ProductList = () => {
             <div className={styles.productListBlock} key={el.id}>
               <ProductItem name={el.name} price={el.price} id={el.id} />
               <button onClick={() => addItemToCart(el)}>+</button>
+              <button onClick={() => handleProductClick(el.id)}>Подробно</button>
             </div>
           );
         })}
