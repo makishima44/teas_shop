@@ -1,0 +1,6 @@
+.cartItemBlock {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  gap: 10px;
+}

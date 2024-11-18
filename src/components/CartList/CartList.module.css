@@ -1,0 +1,13 @@
+.root {
+  width: 500px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cartListBlock {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+}
