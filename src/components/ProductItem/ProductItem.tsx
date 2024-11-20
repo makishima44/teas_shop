@@ -1,5 +1,4 @@
-import { SimpleProductType } from "../../redux/slices/productSlice";
-
+import { SimpleProductType } from "../../types/types";
 import styles from "./ProductItem.module.css";
 
 export const ProductItem = ({ name, price }: SimpleProductType) => {

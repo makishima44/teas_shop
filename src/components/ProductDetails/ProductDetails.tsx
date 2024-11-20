@@ -14,6 +14,7 @@ export const ProductDetails = () => {
   return (
     <div>
       <h3> {product.name}</h3>
+
       {product.description}
     </div>
   );

@@ -4,8 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { ProductSort } from "../ProductSort/ProductSort";
 import { ProductItem } from "../ProductItem/ProductItem";
-import { ProductType } from "../../redux/slices/productSlice";
 import { addItem } from "../../redux/slices/cartSlice";
+import { ProductType } from "../../types/types";
 
 import styles from "./ProductItem.module.css";
 
