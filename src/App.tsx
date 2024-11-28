@@ -4,8 +4,8 @@ import "./App.css";
 
 import { ProductList } from "./components/ProductList/ProductList";
 import { CartList } from "./components/CartList/CartList";
-import { ProductType } from "./redux/slices/productSlice";
 import { ProductDetails } from "./components/ProductDetails/ProductDetails";
+import { ProductType } from "./types/types";
 
 export type ProductArrType = ProductType[];
 

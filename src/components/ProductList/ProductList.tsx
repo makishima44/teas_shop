@@ -1,18 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import { AppDispatch, RootState } from "../../redux/store";
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 import { ProductSort } from "../ProductSort/ProductSort";
 import { ProductItem } from "../ProductItem/ProductItem";
 import { addItem } from "../../redux/slices/cartSlice";
 import { ProductType } from "../../types/types";
 
+import { fetchProducts } from "../../redux/slices/productSlice";
+
 import styles from "./ProductItem.module.css";
 
 export const ProductList = () => {
-  const productArr = useSelector((state: RootState) => state.product);
+  const productArr = useSelector((state: RootState) => state.product.teaList);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   const addItemToCart = (el: ProductType) => {
     dispatch(addItem(el));
