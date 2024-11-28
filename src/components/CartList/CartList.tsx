@@ -4,15 +4,16 @@ import { CartItem } from "../CartItem/CartItem";
 import styles from "./CartList.module.css";
 import { RootState } from "../../redux/store";
 import { deleteItem } from "../../redux/slices/cartSlice";
-import { ProductType } from "../../redux/slices/productSlice";
+
 import { Link } from "react-router-dom";
+import { ProductTypeForCart } from "../../types/types";
 
 export const CartList = () => {
   const cartList = useSelector((state: RootState) => state.cart.items);
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   const dispatch = useDispatch();
 
-  const deleteItemFromCart = (el: ProductType) => {
+  const deleteItemFromCart = (el: ProductTypeForCart) => {
     dispatch(deleteItem(el));
   };
 

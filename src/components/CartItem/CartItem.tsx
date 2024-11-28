@@ -1,4 +1,4 @@
-import { ProductTypeForCart } from "../../redux/slices/productSlice";
+import { ProductTypeForCart } from "../../types/types";
 import style from "./CartItem.module.css";
 
 export const CartItem = ({ name, quantity }: ProductTypeForCart) => {
