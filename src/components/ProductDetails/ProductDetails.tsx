@@ -5,7 +5,7 @@ import { RootState } from "../../redux/store";
 export const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
 
-  const product = useSelector((state: RootState) => state.product.teaList.find((item) => item.id === id));
+  const product = useSelector((state: RootState) => state.product.find((item) => item.id === id));
 
   if (!product) {
     return <div>Продукт не найден</div>; // Обработка случая, если продукт не найден
@@ -13,7 +13,7 @@ export const ProductDetails = () => {
 
   return (
     <div>
-      <h3> {product.name}</h3>
+      <h3> {product.name}</h3>W
 
       {product.description}
     </div>

@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ProductType } from "../../types/types";
 
-
 export type CartType = {
   items: ProductType[];
   totalPrice: number;
@@ -38,8 +37,6 @@ const cartSlice = createSlice({
 
       state.totalPrice -= action.payload.price;
     },
-
-  
   },
 });
 
