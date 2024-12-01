@@ -8,6 +8,6 @@
 
 .productListBlock {
   display: flex;
-  justify-content: space-between;
-  width: 200px;
+  gap: 10px;
+  /* width: 200px; */
 }

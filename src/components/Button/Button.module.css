@@ -1,0 +1,17 @@
+.button {
+  color: #ffffff;
+  background-color: #88b04b;
+  border-radius: 4px;
+  min-width: 30px;
+  min-height: 30px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #567d46;
+}
+
+.button:active {
+  background-color: #6b8e23;
+}

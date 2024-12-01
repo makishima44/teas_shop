@@ -8,15 +8,12 @@ import { addItem } from "../../redux/slices/cartSlice";
 import { ProductType } from "../../types/types";
 
 import styles from "./ProductItem.module.css";
+import Button from "../Button/Button";
 
 export const ProductList = () => {
   const productArr = useSelector((state: RootState) => state.product);
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-
-  // useEffect(() => {
-  //   dispatch(fetchProducts());
-  // }, [dispatch]);
 
   const addItemToCart = (el: ProductType) => {
     dispatch(addItem(el));
@@ -35,8 +32,8 @@ export const ProductList = () => {
           return (
             <div className={styles.productListBlock} key={el.id}>
               <ProductItem name={el.name} price={el.price} id={el.id} />
-              <button onClick={() => addItemToCart(el)}>+</button>
-              <button onClick={() => handleProductClick(el.id)}>Подробно</button>
+              <Button name={"+"} onClick={() => addItemToCart(el)} />
+              <Button name={"Подробно"} onClick={() => handleProductClick(el.id)} />
             </div>
           );
         })}
