@@ -4,11 +4,13 @@ import { ProductType } from "../../types/types";
 export type CartType = {
   items: ProductType[];
   totalPrice: number;
+  countItems: number;
 };
 
 const initialState: CartType = {
   items: [],
   totalPrice: 0,
+  countItems: 0,
 };
 
 const cartSlice = createSlice({
@@ -25,6 +27,7 @@ const cartSlice = createSlice({
       }
 
       state.totalPrice += action.payload.price;
+      state.countItems += 1;
     },
     deleteItem(state, action) {
       const existingItem = state.items.find((item) => item.id === action.payload.id);
@@ -36,11 +39,13 @@ const cartSlice = createSlice({
       }
 
       state.totalPrice -= action.payload.price;
+      state.countItems -= 1;
     },
 
     clearCart(state) {
       state.items = [];
       state.totalPrice = 0;
+      state.countItems = 0;
     },
   },
 });

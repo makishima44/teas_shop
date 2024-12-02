@@ -1,13 +1,11 @@
 .root {
-  width: 500px;
   text-align: center;
   display: flex;
+  gap: 10px;
   flex-direction: column;
-  align-items: center;
 }
 
 .productListBlock {
   display: flex;
   gap: 10px;
-  /* width: 200px; */
 }

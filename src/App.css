@@ -10,6 +10,9 @@
   background-color: #f7f5f2;
 }
 
+.mainBlock {
+  padding: 10px;
+}
+
 .contentBlock {
-  margin-top: 80px;
 }
