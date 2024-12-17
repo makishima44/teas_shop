@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import { ProductList } from "./components/ProductList/ProductList";
 import { CartList } from "./components/CartList/CartList";
@@ -12,11 +12,14 @@ import "./App.css";
 export type ProductArrType = ProductType[];
 
 function App() {
+  const location = useLocation();
+
   return (
     <div className="App">
       <Header />
       <div className="mainBlock">
-        <CartIndicator />
+        {location.pathname !== "/cart" && <CartIndicator />}
+
         <div className="contentBlock">
           <Routes>
             <Route path="/" element={<ProductList />} />
