@@ -6,7 +6,7 @@ export type ButtonPropsType = {
   disabled?: boolean;
 };
 
-const Button = ({ name, onClick, disabled }: ButtonPropsType) => {
+const Button = ({ name, onClick }: ButtonPropsType) => {
   return (
     <button className={styles.button} onClick={onClick}>
       {name}
