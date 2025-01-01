@@ -11,9 +11,9 @@ export const CartIndicator = () => {
 
   return (
     <div className={style.mainBlock}>
-      <Link to="/cart">
-        <img src={cartIcon} alt="" />
-        Товаров({countItems})
+      <Link to="/cart" className={style.link}>
+        <img src={cartIcon} alt="" style={{ height: "30px" }} />
+        <span>Товаров( {countItems} )</span>
       </Link>
     </div>
   );

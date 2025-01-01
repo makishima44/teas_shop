@@ -1,3 +1,15 @@
 .mainBlock {
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  color: #4b3f35;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: #567d46;
 }

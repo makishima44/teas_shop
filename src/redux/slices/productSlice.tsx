@@ -3,26 +3,38 @@ import { productInitialState } from "../initialStates/productInitialState";
 
 const productSlice = createSlice({
   name: "product",
-  initialState: productInitialState,
+  initialState: {
+    products: productInitialState,
+  },
+
   reducers: {
     sortPrice(state, action: PayloadAction<string>) {
       switch (action.payload) {
         case "priceAsc":
-          state.sort((a, b) => a.price - b.price);
+          state.products.sort((a, b) => a.price - b.price);
           break;
         case "priceDesc":
-          state.sort((a, b) => b.price - a.price);
+          state.products.sort((a, b) => b.price - a.price);
           break;
         case "popularityAsc":
-          state.sort((a, b) => a.popularity - b.popularity);
+          state.products.sort((a, b) => a.popularity - b.popularity);
           break;
         case "popularityDesc":
-          state.sort((a, b) => b.popularity - a.popularity);
+          state.products.sort((a, b) => b.popularity - a.popularity);
       }
+    },
+
+    changeCurrency(state, action: PayloadAction<{ rate: number }>) {
+      const rate = action.payload.rate;
+
+      state.products = state.products.map((product) => ({
+        ...product,
+        price: product.price * rate,
+      }));
     },
   },
 });
 
-export const { sortPrice } = productSlice.actions;
+export const { sortPrice, changeCurrency } = productSlice.actions;
 
 export default productSlice.reducer;

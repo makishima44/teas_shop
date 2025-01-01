@@ -29,7 +29,7 @@ export const CartList = () => {
     <div className={styles.root}>
       <Link to="/">Назад</Link>
       <h2>Cart List</h2>
-      <span>TotalPrice:{totalPrice}</span>
+      <span>TotalPrice:{Math.floor(totalPrice)}</span>
       <Button name={"Очистить корзину"} onClick={clearCartHandler}></Button>
       <ul>
         {cartList?.map((el) => {

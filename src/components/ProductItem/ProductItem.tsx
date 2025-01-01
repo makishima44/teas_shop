@@ -5,7 +5,7 @@ export const ProductItem = ({ name, price }: SimpleProductType) => {
   return (
     <div className={styles.productItemBlock}>
       <div>{name}</div>
-      <div>price: {price}</div>
+      <div>price: {Math.floor(price)}</div>
     </div>
   );
 };

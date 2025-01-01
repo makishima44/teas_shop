@@ -6,9 +6,9 @@ export type ButtonPropsType = {
   disabled?: boolean;
 };
 
-const Button = ({ name, onClick }: ButtonPropsType) => {
+const Button = ({ name, onClick, disabled }: ButtonPropsType) => {
   return (
-    <button className={styles.button} onClick={onClick}>
+    <button className={styles.button} onClick={onClick} disabled={disabled}>
       {name}
     </button>
   );
