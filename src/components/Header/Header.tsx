@@ -5,21 +5,19 @@ import style from "./Header.module.css";
 import Button from "../Button/Button";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrency } from "../../redux/slices/currencySlice";
-
 import { changeCurrency } from "../../redux/slices/productSlice";
-import { recalculateCart } from "../../redux/slices/cartSlice";
+import { syncCartWithProducts } from "../../redux/slices/cartSlice";
 import { RootState } from "../../redux/store";
 
 export const Header = () => {
   const dispatch = useDispatch();
-  const currency = useSelector((state: RootState) => state.currency.currency);
+  const currency = useSelector((state: RootState) => state.product.currency);
+  const products = useSelector((state: RootState) => state.product.products);
 
   const handleCurrencyChange = (newCurrency: "BYN" | "USD") => {
     const rate = newCurrency === "USD" ? 1 / 3.4 : 3.4;
-    dispatch(setCurrency({ currency: newCurrency, rate }));
-    dispatch(changeCurrency({ rate }));
-    dispatch(recalculateCart({ rate }));
+    dispatch(changeCurrency({ currency: newCurrency, rate }));
+    dispatch(syncCartWithProducts({ products }));
   };
 
   return (

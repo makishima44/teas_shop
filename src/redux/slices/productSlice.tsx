@@ -5,6 +5,8 @@ const productSlice = createSlice({
   name: "product",
   initialState: {
     products: productInitialState,
+    currency: "BYN" as "BYN" | "USD",
+    exchangeRate: 3.4,
   },
 
   reducers: {
@@ -24,12 +26,12 @@ const productSlice = createSlice({
       }
     },
 
-    changeCurrency(state, action: PayloadAction<{ rate: number }>) {
-      const rate = action.payload.rate;
-
+    changeCurrency(state, action: PayloadAction<{ currency: "BYN" | "USD"; rate: number }>) {
+      state.currency = action.payload.currency;
+      state.exchangeRate = action.payload.rate;
       state.products = state.products.map((product) => ({
         ...product,
-        price: product.price * rate,
+        price: product.price * action.payload.rate,
       }));
     },
   },

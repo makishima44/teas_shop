@@ -9,5 +9,4 @@ export type ProductType = {
 };
 
 export type SimpleProductType = Omit<ProductType, "quantity" | "popularity" | "description" | "image">;
-
 export type ProductTypeForCart = Omit<ProductType, "popularity" | "description" | "image">; //Тип для корзины
