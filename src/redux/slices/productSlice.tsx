@@ -5,7 +5,7 @@ const productSlice = createSlice({
   name: "product",
   initialState: {
     products: productInitialState,
-    currency: "BYN" as "BYN" | "USD",
+    currency: "BYN",
     exchangeRate: 3.4,
   },
 

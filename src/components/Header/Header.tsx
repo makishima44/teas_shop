@@ -1,23 +1,20 @@
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 import cartIcon from "../../assects/img/cartIcon.svg";
+import Button from "../Button/Button";
+import { changeCurrency } from "../../redux/slices/productSlice";
+import { RootState } from "../../redux/store";
 
 import style from "./Header.module.css";
-import Button from "../Button/Button";
-
-import { useDispatch, useSelector } from "react-redux";
-import { changeCurrency } from "../../redux/slices/productSlice";
-import { syncCartWithProducts } from "../../redux/slices/cartSlice";
-import { RootState } from "../../redux/store";
 
 export const Header = () => {
   const dispatch = useDispatch();
   const currency = useSelector((state: RootState) => state.product.currency);
-  const products = useSelector((state: RootState) => state.product.products);
 
   const handleCurrencyChange = (newCurrency: "BYN" | "USD") => {
     const rate = newCurrency === "USD" ? 1 / 3.4 : 3.4;
     dispatch(changeCurrency({ currency: newCurrency, rate }));
-    dispatch(syncCartWithProducts({ products }));
   };
 
   return (

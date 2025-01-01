@@ -1,13 +1,7 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ProductType } from "../../types/types";
+import { createSlice } from "@reduxjs/toolkit";
+import { CartSliceType } from "../../types/types";
 
-export type CartType = {
-  items: ProductType[];
-  totalPrice: number;
-  countItems: number;
-};
-
-const initialState: CartType = {
+const initialState: CartSliceType = {
   items: [],
   totalPrice: 0,
   countItems: 0,
@@ -48,23 +42,9 @@ const cartSlice = createSlice({
       state.totalPrice = 0;
       state.countItems = 0;
     },
-
-    syncCartWithProducts(state, action: PayloadAction<{ products: ProductType[] }>) {
-      const products = action.payload.products;
-
-      state.items = state.items.map((cartItem) => {
-        const updatedProduct = products.find((product) => product.id === cartItem.id);
-        return {
-          ...cartItem,
-          price: updatedProduct ? updatedProduct.price : cartItem.price,
-        };
-      });
-
-      state.totalPrice = state.items.reduce((total, item) => total + item.price * (item.quantity || 1), 0);
-    },
   },
 });
 
-export const { addItem, deleteItem, clearCart, syncCartWithProducts } = cartSlice.actions;
+export const { addItem, deleteItem, clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
