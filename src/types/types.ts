@@ -5,8 +5,9 @@ export type ProductType = {
   quantity: number;
   popularity: number;
   description: string;
+  image: string;
 };
 
-export type SimpleProductType = Omit<ProductType, "quantity" | "popularity" | "description">; //Тип
+export type SimpleProductType = Omit<ProductType, "quantity" | "popularity" | "description" | "image">;
 
-export type ProductTypeForCart = Omit<ProductType, "popularity" | "description">; //Тип для корзины
+export type ProductTypeForCart = Omit<ProductType, "popularity" | "description" | "image">; //Тип для корзины
