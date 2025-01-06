@@ -12,7 +12,7 @@ export const Header = () => {
   const dispatch = useDispatch();
   const currency = useSelector((state: RootState) => state.product.currency);
 
-  const handleCurrencyChange = (newCurrency: "BYN" | "USD") => {
+  const handleCurrencyChange = (newCurrency: "BYN" | "USD",) => {
     const rate = newCurrency === "USD" ? 1 / 3.4 : 3.4;
     dispatch(changeCurrency({ currency: newCurrency, rate }));
   };
